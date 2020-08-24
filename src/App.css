@@ -1,0 +1,63 @@
+/*---------------------------------------------
+
+Template N: http://radiustheme.com/demo/html/classima/
+Description: Classima - Classified Listing HTML Template
+Aut: http://www.radiustheme.com 
+Version: 1.0.0
+
+===================   
+CSS INDEX
+===================
+1. Typography
+2. Bootstrap Overwrite
+    2.1 Form
+    2.2 Grid
+3. Vendor Custom Style 
+    3.1 Owl Carousel Nav  
+4. Template Layout Style
+    4.1 Back To Top
+    4.2 Button
+    4.3 Footer
+    4.4 Global
+    4.5 Header Menu
+    4.6 Inner Page Banner
+    4.7 Pagination
+    4.8 Preloader
+    4.9 Section Heading
+    4.10 Widget
+5. Template Page Style
+    5.1 About Us
+    5.2 Account
+    5.3 Banner
+    5.4 Blog
+    5.5 Brand
+    5.6 Category
+    5.7 Contact
+    5.8 Counter
+    5.9 Error Page
+    5.10 FAQ
+    5.11 Location Search
+    5.12 Modal
+    5.13 Post Ad
+    5.14 Pricing Table
+    5.15 Process
+    5.16 Product
+    5.17 Search Box
+    5.18 Search Result
+    5.19 Store
+    5.20 Testimonial    
+6. Helper Classes
+    6.1 Background
+    6.2 Margin
+    6.3 Misc
+    6.4 Padding
+    6.5 Section Space
+    6.6 Text
+
+--------------------------------------------*/
+/*=======================================================================
+1. Typography 
+=========================================================================*/
+body {
+    font-family: "Roboto", sans-serif;
+}

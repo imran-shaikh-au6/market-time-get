@@ -1,0 +1,9 @@
+.navCust {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 201, 20, 1) 0%,
+        rgba(249, 107, 126, 1) 74%
+    );
+    height: 50px;
+    padding-top: 5px;
+}

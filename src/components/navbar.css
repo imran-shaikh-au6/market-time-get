@@ -1,0 +1,23 @@
+/* 
+.back{
+    position: absolute;
+    top: 0px;
+}
+.img{
+    width: 100%;
+}
+.color{
+    color: white;
+} */
+.back {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 201, 20, 1) 0%,
+        rgba(249, 107, 126, 1) 74%
+    );
+}
+.spa {
+    position: relative;
+    top: 12px;
+    padding-left: 2px;
+}
