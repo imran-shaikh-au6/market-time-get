@@ -19,7 +19,10 @@ class AddNewPost extends Component {
     handleFormData = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        const datas = await axios.post("/addProducts", formData);
+        const datas = await axios.post(
+            "https://market-time-be.herokuapp.com/addProducts",
+            formData
+        );
         if (datas.status === 200) {
             alert("Uploaded Successfully");
             this.props.history.push("/my-Ads");

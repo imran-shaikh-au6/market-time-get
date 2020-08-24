@@ -10,13 +10,17 @@ class MyAddsPage extends Component {
         data: null,
     };
     async componentDidMount() {
-        const fetch = await axios.get("/userMyPro");
+        const fetch = await axios.get(
+            "https://market-time-be.herokuapp.com/userMyPro"
+        );
         const arr1 = fetch.data;
         const arr2 = arr1.flat();
         this.setState({ data: arr2 });
     }
     async componentWillReceiveProps() {
-        const fetch = await axios.get("/userMyPro");
+        const fetch = await axios.get(
+            "https://market-time-be.herokuapp.com/userMyPro"
+        );
         const arr1 = fetch.data;
         const arr2 = arr1.flat();
         this.setState({ data: arr2 });

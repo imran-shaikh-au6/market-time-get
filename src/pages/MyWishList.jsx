@@ -11,7 +11,9 @@ class MyWishList extends Component {
     };
 
     async componentDidMount() {
-        const fetch = await axios.get("/userWishList");
+        const fetch = await axios.get(
+            "https://market-time-be.herokuapp.com/userWishList"
+        );
         // this.setState(fetch.data)
         console.log(fetch.data);
 

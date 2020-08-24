@@ -4,7 +4,9 @@ import { withRouter } from "react-router-dom";
 class MainMyWishList extends Component {
     deleteProduct = async (e) => {
         const id = e.target.id;
-        await axios.post(`/user/deleteFromWishList/${id}`);
+        await axios.post(
+            `https://market-time-be.herokuapp.com/user/deleteFromWishList/${id}`
+        );
         alert("Deleted product from Wishlist ");
         this.props.history.push("/user-dashboard");
     };

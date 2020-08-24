@@ -19,7 +19,9 @@ class GetAllProducts extends Component {
         const productId = e.target.id;
 
         if (localStorage.getItem("jwtToken")) {
-            const res = await axios.post(`/user/addTowishlist/${productId}`);
+            const res = await axios.post(
+                `https://market-time-be.herokuapp.com/user/addTowishlist/${productId}`
+            );
             console.log(res.data.data);
             alert("added to favourite list");
         } else {

@@ -19,7 +19,9 @@ const Image = (props) => {
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true);
-            const res = await axios.get("/allProduct/1");
+            const res = await axios.get(
+                "https://market-time-be.herokuapp.com/allProduct/1"
+            );
             console.log(res.data);
             setPosts(res.data.allProduct);
             setLoading(false);
@@ -31,7 +33,7 @@ const Image = (props) => {
         e.persist();
         if (e.target.title === "") {
             const res = await axios(
-                `/filterProduct/1?city=${e.target.city.value}&category=${e.target.category.value}&title="undefined"`
+                `https://market-time-be.herokuapp.com/filterProduct/1?city=${e.target.city.value}&category=${e.target.category.value}&title="undefined"`
             );
             setNormalChange(true);
             setSearchedProduct(res.data.data[0]);
@@ -43,7 +45,7 @@ const Image = (props) => {
             });
         } else {
             const res = await axios(
-                `/filterProduct/1?city=${e.target.city.value}&category=${e.target.category.value}&title=${e.target.title.value}`
+                `https://market-time-be.herokuapp.com/filterProduct/1?city=${e.target.city.value}&category=${e.target.category.value}&title=${e.target.title.value}`
             );
 
             setNormalChange(true);
