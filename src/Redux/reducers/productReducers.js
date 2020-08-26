@@ -1,8 +1,12 @@
-import { GetAllProduct, particularProduct,particularProductOwner } from "../actions/productType";
+import {
+    GetAllProduct,
+    particularProduct,
+    particularProductOwner,
+} from "../actions/productType";
 const initialState = {
     getAllProducts: {},
     particularProductDetail: {},
-    particularProductOwner:null
+    particularProductOwner: null,
 };
 const productReducer = (state = initialState, actions) => {
     const { type, payload } = actions;
@@ -20,7 +24,7 @@ const productReducer = (state = initialState, actions) => {
         case particularProductOwner:
             return {
                 ...state,
-                particularProductOwner: payload
+                particularProductOwner: payload,
             };
         default:
             return state;

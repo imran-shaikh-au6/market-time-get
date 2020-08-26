@@ -18,6 +18,8 @@ import EditProfile from "./pages/EditProfile";
 import MyAddsPage from "./pages/MyAddsPage";
 import EditProduct from "./pages/EditProduct";
 import MyWishList from "./pages/MyWishList";
+import ForgetPassword from "./pages/ForgetPassword";
+import ResetPassword from "./pages/ResetPassword";
 class App extends Component {
     componentDidMount() {
         if (localStorage.jwtToken) {
@@ -32,7 +34,7 @@ class App extends Component {
                 <Navbar />
                 <Switch>
                     <Route exact path="/" component={Image} />
-                    <Route exact path="/" component={Category} />
+
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/addPost" component={AddNewPost} />
@@ -55,6 +57,17 @@ class App extends Component {
                         exact
                         path="/singleProduct"
                         component={SingleProduct}
+                    />
+                    <Route
+                        exact
+                        path="/forget-password"
+                        component={ForgetPassword}
+                    />
+
+                    <Route
+                        exact
+                        path="/change-password/:slug"
+                        component={ResetPassword}
                     />
                 </Switch>
             </div>

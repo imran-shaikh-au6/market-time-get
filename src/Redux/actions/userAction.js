@@ -1,23 +1,43 @@
-import { RegisterUser, LoginUser } from "./userType";
+import { RegisterUser, LoginUser, Get_Error } from "./userType";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./setAuthToken";
 
 import axios from "axios";
 export const RegisterUsers = (data1) => async (dispatch) => {
-    const res = await axios.post(
-        "https://market-time-be.herokuapp.com/user/register",
-        data1.newUser
-    );
+    console.log(data1.newUser);
 
-    dispatch({ type: RegisterUser, payload: res.data.user });
+    await axios
+        .post(
+            "https://market-time-be.herokuapp.com/user/register",
+            data1.newUser
+        )
+        .then((res) => {
+            if (res.status === 200) {
+                alert("Registered successfully.");
+                dispatch({ type: RegisterUser, payload: res.data.user });
+            }
+            dispatch({ type: RegisterUser, payload: res.data.user });
+        })
+        .catch((err) => {
+            dispatch({ type: Get_Error, payload: err.response.data });
+        });
 };
 export const loginUsers = (data) => async (dispatch) => {
-    const data1 = await axios.post(
-        "https://market-time-be.herokuapp.com/user/login",
-        data.newUser
-    );
-
-    setToken(data1.data.token, dispatch);
+    console.log(data.newUser);
+    await axios
+        .post("https://market-time-be.herokuapp.com/user/login", data.newUser)
+        .then((data1) => {
+            if (data1.status === 200) {
+                setToken(data1.data.token, dispatch);
+                data.history.push("/");
+            }
+            console.log(data1.data);
+            // setToken(data1.data.token, dispatch);
+        })
+        .catch((err) => {
+            console.log(err.response.data);
+            dispatch({ type: Get_Error, payload: err.response.data });
+        });
 };
 export const userProfile = (id) => async (dispatch) => {
     await axios.get("https://market-time-be.herokuapp.com/userProfile");
@@ -42,9 +62,15 @@ export const editProfile = (data) => (dispatch) => {
 export const GoogleLoginAuth = (data) => async (dispatch) => {
     const res = await axios.post(
         "https://market-time-be.herokuapp.com/google",
-        data
+        data.data
     );
-    setToken(res.data.token, dispatch);
+    console.log(res.data);
+    if (res.data.token) {
+        setToken(res.data.token, dispatch);
+        data.history.push("/");
+    } else {
+        alert("Please Try Again");
+    }
 };
 const setToken = (res, dispatch) => {
     // Save token to local storage

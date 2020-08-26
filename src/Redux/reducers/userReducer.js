@@ -1,4 +1,9 @@
-import { RegisterUser, LoginUser, UserProfile} from "../actions/userType";
+import {
+    RegisterUser,
+    LoginUser,
+    UserProfile,
+    Get_Error,
+} from "../actions/userType";
 import isEmpty from "../../utils/is-empty";
 const INITIAL_STATE = {
     isAuthenticated: false,
@@ -31,7 +36,13 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 UserProfile: action.payload,
             };
         }
-        
+        case Get_Error: {
+            return {
+                ...state,
+                errors: action.payload,
+            };
+        }
+
         default:
             return { ...state };
     }

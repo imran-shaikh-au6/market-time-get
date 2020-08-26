@@ -9,6 +9,9 @@
     margin-left: 500px;
     color: white;
 } */
+.data {
+    display: flex;
+}
 .background {
     /* background: linear-gradient(90deg, rgba(226,235,9,1) 0%, rgba(122,215,70,1) 28%); */
     /* background: linear-gradient(to right, #c31432, #240b36); */

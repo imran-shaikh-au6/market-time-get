@@ -25,8 +25,8 @@ import productReducer from "./productReducers";
 // export default persistReducer(persistConfig, rootReducer);
 
 const rootReducer = combineReducers({
-    user:userReducer,
-    product:productReducer
-})
+    user: userReducer,
+    product: productReducer,
+});
 
-export default rootReducer
+export default rootReducer;

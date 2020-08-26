@@ -24,7 +24,3 @@ export const particularProductDetail = (id) => async (dispatch) => {
         payload: res.data.user,
     });
 };
-export const addPro = (token, data) => async (dispatch) => {
-    console.log(data);
-    console.log(token);
-};

@@ -87,26 +87,28 @@ const Image = (props) => {
                             onSubmit={handleSubmit}
                         >
                             <div className="form-group ">
-                                <select
-                                    className="form-control wC "
-                                    name="category"
-                                >
-                                    <option
-                                        value="undefined"
-                                        defaultValue="selected"
-                                        // selected="selected"
+                                <div>
+                                    <select
+                                        className="form-control wC "
+                                        name="category"
                                     >
-                                        Select Category
-                                    </option>
-                                    <option>Property</option>
-                                    <option>Electronics</option>
-                                    <option>Educational</option>
-                                    <option>Pets</option>
-                                    <option>Computer Accesseries</option>
-                                    <option>Car and Bike</option>
-                                    <option>Fashion</option>
-                                    <option>Furniture</option>
-                                </select>
+                                        <option
+                                            value="undefined"
+                                            defaultValue="selected"
+                                            // selected="selected"
+                                        >
+                                            Search By Category
+                                        </option>
+                                        <option>Property</option>
+                                        <option>Electronics</option>
+                                        <option>Educational</option>
+                                        <option>Pets</option>
+                                        <option>Computer Accesseries</option>
+                                        <option>Car and Bike</option>
+                                        <option>Fashion</option>
+                                        <option>Furniture</option>
+                                    </select>
+                                </div>
                             </div>
                             <div className="form-group">
                                 <select className="form-control wC" name="city">
@@ -115,7 +117,7 @@ const Image = (props) => {
                                         defaultValue="selected"
                                         // selected="selected"
                                     >
-                                        Select City
+                                        Search By City
                                     </option>
                                     <option>Mumbai</option>
                                     <option>Banglore</option>
