@@ -4,6 +4,7 @@ import isEmpty from "../utils/is-empty";
 import axios from "axios";
 import "./singleProduct.css";
 import Spinner from "../components/Spinner";
+import { withRouter } from "react-router-dom";
 function SingleProduct(props) {
     const [products, setProducts] = useState(null);
 
@@ -19,10 +20,30 @@ function SingleProduct(props) {
             const res = await axios.post(
                 `https://market-time-be.herokuapp.com/userEmailDetails/${pId}`
             );
-            console.log(res.data.data);
-            alert("Email sent");
+            console.log(res.data);
+            if (res.data) {
+                alert(
+                    "Owner Details has been sent to your mail, Please Check inbox"
+                );
+            }
         } else {
-            alert("login first");
+            props.history.push("/login");
+        }
+    };
+    const AddToFavo = async (e) => {
+        e.preventDefault();
+        const productId = e.target.id;
+        console.log(productId);
+        if (localStorage.getItem("jwtToken")) {
+            const res = await axios.post(
+                `https://market-time-be.herokuapp.com/user/addTowishlist/${productId}`
+            );
+            console.log(res.data.data);
+            if (res.data) {
+                alert("added to favourite list");
+            }
+        } else {
+            props.history.push("/login");
         }
     };
     if (!isEmpty(products)) {
@@ -36,12 +57,13 @@ function SingleProduct(props) {
             description,
             price,
             year,
+            _id,
         } = products;
-        console.log(props.productOwner);
+
         const { contactNo, image, name } = props.productOwner;
         const cutCont = contactNo.toString();
         const cutted = cutCont.slice(0, 6) + "XXXX";
-        console.log(contactNo);
+
         return (
             <div className="container-fluid mt-3">
                 <div className="row">
@@ -161,6 +183,8 @@ function SingleProduct(props) {
                             <button
                                 style={{ width: " 190px" }}
                                 className="btn btn-warning"
+                                onClick={AddToFavo}
+                                id={_id}
                             >
                                 Add To WishList
                             </button>
@@ -231,8 +255,8 @@ function SingleProduct(props) {
                                 style={{
                                     height: "150px",
                                     width: "150px",
-                                    "border-radius": "50%",
-                                    "margin-left": "120px",
+                                    borderRadius: "50%",
+                                    marginLeft: "120px",
                                 }}
                                 src={image}
                                 alt={image}
@@ -247,7 +271,10 @@ function SingleProduct(props) {
                                     .toUTCString()
                                     .slice(4, 16)}
                             </h4>
-                            <button className="btn btn-warning">
+                            <button
+                                onClick={emailHander}
+                                className="btn btn-warning"
+                            >
                                 Get Owner Details By Mail
                             </button>
                         </div>
@@ -267,4 +294,4 @@ const mapStateToProps = (state) => {
         productOwner: state.product.particularProductOwner,
     };
 };
-export default connect(mapStateToProps, null)(SingleProduct);
+export default connect(mapStateToProps, null)(withRouter(SingleProduct));

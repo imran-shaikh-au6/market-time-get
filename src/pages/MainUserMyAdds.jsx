@@ -22,7 +22,7 @@ class MainUserMyAdds extends Component {
     render() {
         console.log(this.props.product);
         return (
-            <div className="col-md-3 cotm">
+            <div className="col-md-3 cot">
                 <div className="card cotm1">
                     <img
                         src={this.props.product.photos[0]}
@@ -30,27 +30,32 @@ class MainUserMyAdds extends Component {
                         alt="..."
                     />
                     <div className="card-body">
-                        <h5 className="card-title">{this.props.product.title}</h5>
+                        <h5 className="card-title">
+                            {this.props.product.title}
+                        </h5>
                         <p className="card-text">
                             Add is From {this.props.product.city}
                         </p>
                     </div>
                     <div className="card-footer">
                         <small className="text-muted">
-                            Last updated {this.props.product.date}
+                            Last updated{" "}
+                            {new Date(this.props.product.date)
+                                .toUTCString()
+                                .slice(4, 16)}{" "}
                         </small>
                     </div>
                     <button
                         id={this.props.product._id}
                         onClick={this.editProduct}
-                        className="btn btn-primary"
+                        className="btn btn-warning m-4"
                     >
                         Edit
                     </button>
                     <button
                         id={this.props.product._id}
                         onClick={this.deletProduct}
-                        className="btn btn-primary"
+                        className="btn btn-warning m-4"
                     >
                         Delet Product
                     </button>

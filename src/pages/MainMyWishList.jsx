@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import NotFound from "../components/NotFound";
+import "./MainMyWishList.css";
 class MainMyWishList extends Component {
     deleteProduct = async (e) => {
         const id = e.target.id;
@@ -14,42 +16,43 @@ class MainMyWishList extends Component {
     render() {
         if (this.props.product.length !== 0) {
             return (
-                <div>
-                    <div className="col-md-3">
-                        <div className="card">
-                            <img
-                                src={this.props.product.photos[0]}
-                                className="card-img-top"
-                                alt="..."
-                            />
-                            <div className="card-body">
-                                <h5 className="card-title">
-                                    {this.props.product.title}
-                                </h5>
-                                <p className="card-text">
-                                    Add is From {this.props.product.city}
-                                </p>
-                            </div>
-                            <div className="card-footer">
-                                <small className="text-muted">
-                                    Last updated {this.props.product.date}
-                                </small>
-                            </div>
-                            <button
-                                id={this.props.product._id}
-                                onClick={this.deleteProduct}
-                                className="btn btn-primary"
-                            >
-                                Delet From Wishlist
-                            </button>
+                <div className="col-md-3 cot">
+                    <div className="card cotm1">
+                        <img
+                            src={this.props.product.photos[0]}
+                            className="card-img-top img"
+                            alt="..."
+                        />
+                        <div className="card-body">
+                            <h5 className="card-title">
+                                {this.props.product.title}
+                            </h5>
+                            <p className="card-text">
+                                Add is From {this.props.product.city}
+                            </p>
                         </div>
+                        <div className="card-footer">
+                            <small className="text-muted">
+                                Last updated{" "}
+                                {new Date(this.props.product.date)
+                                    .toUTCString()
+                                    .slice(4, 16)}{" "}
+                            </small>
+                        </div>
+                        <button
+                            id={this.props.product._id}
+                            onClick={this.deleteProduct}
+                            className="btn btn-warning"
+                        >
+                            Delete From Wishlist
+                        </button>
                     </div>
                 </div>
             );
         } else {
             return (
                 <div>
-                    <h1>No Product Added to WishList</h1>
+                    <NotFound />
                 </div>
             );
         }

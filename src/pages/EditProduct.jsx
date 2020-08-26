@@ -13,6 +13,7 @@ class EditProduct extends Component {
     handleFormData = async (e) => {
         e.preventDefault();
         const id = this.props.history.location.state;
+        console.log(id);
         const formData = new FormData(e.target);
         formData.append("id", id);
 
@@ -20,6 +21,10 @@ class EditProduct extends Component {
             "https://market-time-be.herokuapp.com/editproduct",
             formData
         );
+        if (datas.data) {
+            alert("Edited Successfully");
+            this.props.history.push("/my-Ads");
+        }
         console.log(datas.data);
     };
 
@@ -145,7 +150,6 @@ class EditProduct extends Component {
                         />
                     </div>
                     {/* Select Images */}
-                    <h3>Select Images</h3>
 
                     <div>
                         <h2>Select Images</h2>
@@ -159,6 +163,7 @@ class EditProduct extends Component {
                                         aria-describedby="inputGroupFileAddon01"
                                         name="image"
                                         onChange={this.handleChange}
+                                        required="true"
                                     />
                                     <label
                                         className="custom-file-label"

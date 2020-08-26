@@ -23,9 +23,11 @@ class GetAllProducts extends Component {
                 `https://market-time-be.herokuapp.com/user/addTowishlist/${productId}`
             );
             console.log(res.data.data);
-            alert("added to favourite list");
+            if (res.data) {
+                alert("added to favourite list");
+            }
         } else {
-            alert("login first");
+            this.props.history.push("/login");
         }
     };
 
@@ -52,14 +54,17 @@ class GetAllProducts extends Component {
                         <img src={photos[0]} alt="" />
                     </div>
                     <div className="product-details">
-                        <span className="product-catagory">
-                            <i className="fas fa-map-marker-alt fas-3x fa-fw"></i>
-                            {city}
-                        </span>
-                        <span className="time">
-                            <i className="far fa-calendar-alt"></i>
-                            {new Date(date).toUTCString().slice(4, 16)}
-                        </span>
+                        <div className="det">
+                            <span className="product-catagory">
+                                <i className="fas fa-map-marker-alt fas-3x fa-fw"></i>
+                                {city}
+                            </span>
+                            <span className="time">
+                                <i className="far fa-calendar-alt"></i>
+                                {new Date(date).toUTCString().slice(4, 16)}
+                            </span>
+                        </div>
+
                         <h4>
                             <a href="#/">{title}</a>
                         </h4>
@@ -80,7 +85,10 @@ class GetAllProducts extends Component {
                             </div>
                             <div className="product-links">
                                 <a onClick={this.AddToFavo} href="#/">
-                                    <i id={_id} className="fa fa-heart fa-2x"></i>
+                                    <i
+                                        id={_id}
+                                        className="fa fa-heart fa-2x"
+                                    ></i>
                                 </a>
                             </div>
                         </div>

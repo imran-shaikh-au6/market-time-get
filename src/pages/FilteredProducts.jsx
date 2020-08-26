@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import GetAllProducts from "../pages/GetAllProducts";
 import isEmpty from "../utils/is-empty";
+import NotFound from "../components/NotFound";
 class FilteredProducts extends Component {
     render() {
         return (
@@ -13,7 +14,7 @@ class FilteredProducts extends Component {
                             )
                         )
                     ) : (
-                        <h1>Not Found Any Product</h1>
+                        <NotFound />
                     )}
                 </div>
             </div>

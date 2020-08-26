@@ -5,6 +5,7 @@ import MainUserMyAdds from "./MainUserMyAdds";
 import Spinner from "../components/Spinner";
 import axios from "axios";
 import isEmpty from "../utils/is-empty";
+import NotFound from "../components/NotFound";
 class MyAddsPage extends Component {
     state = {
         data: null,
@@ -30,8 +31,8 @@ class MyAddsPage extends Component {
         if (this.state.data !== null) {
             if (isEmpty(this.state.data)) {
                 return (
-                    <div>
-                        <h1>No product Added</h1>
+                    <div className="container-fluid">
+                       <NotFound/>
                     </div>
                 );
             }

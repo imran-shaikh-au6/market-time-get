@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./addProduct.css";
 import { connect } from "react-redux";
-import { addPro } from "../Redux/actions/productAction";
+
 import { withRouter } from "react-router-dom";
 class AddNewPost extends Component {
     state = {
@@ -236,4 +236,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { addPro })(withRouter(AddNewPost));
+export default connect(mapStateToProps)(withRouter(AddNewPost));

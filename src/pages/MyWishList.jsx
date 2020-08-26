@@ -5,6 +5,7 @@ import MainMyWishList from "./MainMyWishList";
 import axios from "axios";
 import Spinner from "../components/Spinner";
 import isEmpty from "../utils/is-empty";
+import NotFound from "../components/NotFound";
 class MyWishList extends Component {
     state = {
         data: null,
@@ -29,19 +30,19 @@ class MyWishList extends Component {
             if (isEmpty(this.state.data)) {
                 return (
                     <div className="container-fluid">
-                        <img
-                            src="https://res.cloudinary.com/dlcckjhpj/image/upload/v1598105518/tenor_vcbjih.gif"
-                            alt="img"
-                        />
-                        <h1>NO Product Added to Favourite List</h1>
+                        <NotFound />
                     </div>
                 );
             } else {
-                return this.state.data.map((d, index) => (
-                    <div>
-                        <MainMyWishList product={d} key={d._id} />
+                return (
+                    <div className="container-fluid">
+                        <div className="row">
+                            {this.state.data.map((d, index) => (
+                                <MainMyWishList product={d} key={d._id} />
+                            ))}
+                        </div>
                     </div>
-                ));
+                );
             }
         } else {
             return <Spinner />;
