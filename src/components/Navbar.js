@@ -87,20 +87,17 @@ class Navbar extends Component {
                     />
                     <button
                         className="navbar-toggler"
-                        type="button"
                         data-toggle="collapse"
-                        data-target="#navbarSupportedConten"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
+                        data-target="#navbar-menu"
                     >
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div
-                        className="collapse navbar-collapse"
-                        id="navbarSupportedContent"
-                    >
+                    <div className="collapse navbar-collapse" id="navbar-menu">
+                        <div
+                            className="collapse navbar-collapse"
+                            id="navbar-menu"
+                        ></div>
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">
                                 <a className="nav-link" href="/">
