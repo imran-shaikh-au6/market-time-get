@@ -62,10 +62,12 @@ class Register extends Component {
                         <div className="chilfggle">
                             <div>
                                 <div class="signup-connect">
-                                    <h2>Create An Account</h2>
+                                    <h2>
+                                        <b>Create An Account</b>
+                                    </h2>
                                     <GoogleLogin
                                         clientId="1072465421731-uvep08evonm2cc003a31g791m73tonhi.apps.googleusercontent.com"
-                                        buttonText="Login"
+                                        buttonText="SignUp With Google "
                                         onSuccess={this.responseGoogle}
                                         onFailure={this.responseGoogle}
                                         cookiePolicy={"single_host_origin"}
@@ -76,20 +78,23 @@ class Register extends Component {
                         </div>
                     </div>
                     <div className="col-md-5 text1">
+                        <h3 className="display-6 text-center my-2">Register Form</h3>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group form-group-sm">
                                 <label for="exampleInputPassword1">
-                                    User Name
+                                    <b>User Name</b>
                                 </label>
                                 <input
                                     onChange={this.handleChange}
                                     type="text"
+                                    placeholder="Enter Your Name"
                                     className={classnames(
                                         "form-control input-sm ",
                                         {
                                             "is-invalid": errors.name,
                                         }
                                     )}
+                                    required="true"
                                     name="name"
                                 />
                                 {errors.name && (
@@ -101,13 +106,14 @@ class Register extends Component {
                             <div className="form-group">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">
-                                        Choose Your City
+                                        <b> Choose Your City</b>
                                     </label>
                                     <select
                                         class="form-control"
                                         id="exampleFormControlSelect1"
                                         onChange={this.handleChange}
                                         name="city"
+                                        required="true"
                                     >
                                         <option>Mumbai</option>
                                         <option>Pune</option>
@@ -119,7 +125,7 @@ class Register extends Component {
                                 </div>
                             </div>
                             <label for="exampleInputPassword1">
-                                Contact Number
+                                <b> Contact Number</b>
                             </label>
                             <div class="input-group ">
                                 <br />
@@ -129,15 +135,24 @@ class Register extends Component {
 
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    className={classnames("form-control ", {
+                                        "is-invalid": errors.contactNo,
+                                    })}
                                     id="inlineFormInputGroup"
                                     onChange={this.handleChange}
                                     name="contactNo"
+                                    required="true"
+                                    placeholder="Enter Mobile Number"
                                 />
+                                {errors.contactNo && (
+                                    <div className="invalid-feedback">
+                                        {errors.contactNo}
+                                    </div>
+                                )}
                             </div>
                             <div className="form-group">
                                 <label for="exampleInputEmail1">
-                                    Email address
+                                    <b> Email Address</b>
                                 </label>
                                 <input
                                     type="email"
@@ -148,6 +163,8 @@ class Register extends Component {
                                     aria-describedby="emailHelp"
                                     onChange={this.handleChange}
                                     name="email"
+                                    required="true"
+                                    placeholder="Enter Email Address"
                                 />
                                 {errors.email && (
                                     <div className="invalid-feedback">
@@ -164,7 +181,7 @@ class Register extends Component {
                             </div>
                             <div className="form-group">
                                 <label for="exampleInputPassword1">
-                                    Password
+                                    <b> Password</b>
                                 </label>
                                 <input
                                     type="password"
@@ -174,6 +191,8 @@ class Register extends Component {
                                     id="exampleInputPassword1"
                                     onChange={this.handleChange}
                                     name="password"
+                                    required="true"
+                                    placeholder="Enter Your Password"
                                 />
                                 {errors.password && (
                                     <div className="invalid-feedback">

@@ -4,6 +4,9 @@ import { withRouter } from "react-router-dom";
 import { particularProductDetail } from "../Redux/actions/productAction";
 import axios from "axios";
 import "./GetAllProduct.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 class GetAllProducts extends Component {
     state = {
         popup: false,
@@ -24,7 +27,9 @@ class GetAllProducts extends Component {
             );
             console.log(res.data.data);
             if (res.data) {
-                alert("added to favourite list");
+                toast.success("Added to Favourite List !", {
+                    position: toast.POSITION.TOP_CENTER,
+                });
             }
         } else {
             this.props.history.push("/login");

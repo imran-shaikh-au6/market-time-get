@@ -69,13 +69,21 @@
     );
 }
 .seller {
-    height: auto;
+
     color: white;
     margin-top: 5px;
     width: auto;
+    height: 380px;
     padding: 20px;
     border-radius: 10px;
     background: linear-gradient(to right, #b79891, #94716b);
+    text-align: center;
+}
+.seller img {
+    height: 150px;
+    border-radius: 50%;
+   
+    width: 150px;
 }
 /* h2 {
     font-size: 1em;
@@ -93,7 +101,9 @@ h2 a {
     color: #fb667a;
     text-decoration: none;
 }
-
+.information{
+    color: white;
+}
 .blue {
     color: #a56a91;
 }
@@ -104,6 +114,7 @@ h2 a {
 .tabs {
     margin-top: 10px;
     background-color: white;
+    height: 200px;
 }
 
 .container td {

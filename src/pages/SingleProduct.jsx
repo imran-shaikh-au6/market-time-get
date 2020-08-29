@@ -5,6 +5,9 @@ import axios from "axios";
 import "./singleProduct.css";
 import Spinner from "../components/Spinner";
 import { withRouter } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 function SingleProduct(props) {
     const [products, setProducts] = useState(null);
 
@@ -22,8 +25,11 @@ function SingleProduct(props) {
             );
             console.log(res.data);
             if (res.data) {
-                alert(
-                    "Owner Details has been sent to your mail, Please Check inbox"
+                toast.success(
+                    "Owner Details has been sent to your Email, Please Check inbox",
+                    {
+                        position: toast.POSITION.TOP_CENTER,
+                    }
                 );
             }
         } else {
@@ -40,7 +46,9 @@ function SingleProduct(props) {
             );
             console.log(res.data.data);
             if (res.data) {
-                alert("added to favourite list");
+                toast.success("added to favourite list !!", {
+                    position: toast.POSITION.TOP_CENTER,
+                });
             }
         } else {
             props.history.push("/login");
@@ -251,32 +259,27 @@ function SingleProduct(props) {
                     </div>
                     <div className="col-md-4">
                         <div className="seller">
-                            <img
-                                style={{
-                                    height: "150px",
-                                    width: "150px",
-                                    borderRadius: "50%",
-                                    marginLeft: "120px",
-                                }}
-                                src={image}
-                                alt={image}
-                            />
-                            <h3>Seller information</h3>
-                            <h4>Name: {name}</h4>
-                            <h4>Location: {props.productOwner.city}</h4>
-                            <h4>Contact No: {cutted}</h4>
-                            <h4>
-                                Active From:{" "}
-                                {new Date(props.productOwner.date)
-                                    .toUTCString()
-                                    .slice(4, 16)}
-                            </h4>
-                            <button
-                                onClick={emailHander}
-                                className="btn btn-warning"
-                            >
-                                Get Owner Details By Mail
-                            </button>
+                            <img src={image} alt={image} />
+                            <div className="information">
+                                <h3 style={{ color: "yellow" }}>
+                                    Seller information
+                                </h3>
+                                <h5>Name: {name}</h5>
+                                <h5>Location: {props.productOwner.city}</h5>
+                                <h5>Contact No: {cutted}</h5>
+                                <h5>
+                                    Active From:{" "}
+                                    {new Date(props.productOwner.date)
+                                        .toUTCString()
+                                        .slice(4, 16)}
+                                </h5>
+                                <button
+                                    onClick={emailHander}
+                                    className="btn btn-warning"
+                                >
+                                    Get Owner Details By Mail
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <div className="col-md-1"></div>

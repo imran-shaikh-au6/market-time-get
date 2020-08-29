@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
+import GoogleLogin from "react-google-login";
+
 import {
     NotificationContainer,
     NotificationManager,
@@ -41,6 +43,18 @@ class ResetPassword extends Component {
         const value = e.target.value;
         this.setState({ [name]: value });
     };
+    responseGoogle = (response) => {
+        const { name, googleId, email, imageUrl } = response.profileObj;
+        console.log(response.profileObj);
+        const data = {
+            name: name,
+            image: imageUrl,
+            id: googleId,
+            email: email,
+        };
+        console.log(data);
+        this.props.GoogleLoginAuth({ data: data, history: this.props.history });
+    };
     handleForm = (e) => {
         e.preventDefault();
         if (this.state.email === "") {
@@ -73,51 +87,65 @@ class ResetPassword extends Component {
     };
     render() {
         return (
-            <div className="content">
+            <div className="container-fluid register">
                 <NotificationContainer />
-                <form onSubmit={this.handleForm}>
-                    <div className="row" style={{ marginTop: 20 }}>
-                        <div className="col-sm-3"></div>
-                        <div className="col-sm-6">
-                            <div className="card">
-                                <div className="card-header text-center">
-                                    Reset Password
-                                </div>
-                                <div className="card-body">
-                                    <div className="form-group">
-                                        <label>Password</label>
-                                        <input
-                                            type="password"
-                                            name="password"
-                                            value={this.state.password}
-                                            onChange={this.handleInput}
-                                            className="form-control"
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Confirm Password</label>
-                                        <input
-                                            type="password"
-                                            name="confirm_password"
-                                            value={this.state.confirm_password}
-                                            onChange={this.handleInput}
-                                            className="form-control"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="card-footer text-center">
-                                    <input
-                                        type="button"
-                                        value="Reset"
-                                        onClick={this.handleForm}
-                                        className="btn btn-primary"
-                                    />
+                <div className="row mt-2">
+                    <div className="col-md-2"></div>
+                    <div className="col-md-3 ggle">
+                        <div className="chilfggle">
+                            <div>
+                                <div class="signup-connect">
+                                    <h2>Login With Google</h2>
+                                    <GoogleLogin
+                                        clientId="1072465421731-uvep08evonm2cc003a31g791m73tonhi.apps.googleusercontent.com"
+                                        buttonText="Login"
+                                        onSuccess={this.responseGoogle}
+                                        onFailure={this.responseGoogle}
+                                        cookiePolicy={"single_host_origin"}
+                                        className="gbtn"
+                                    ></GoogleLogin>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-sm-3"></div>
                     </div>
-                </form>
+                    <div className="col-md-5 text1">
+                        <form onSubmit={this.handleForm}>
+                            <div className="form-group">
+                                <label for="exampleInputEmail1">Password</label>
+                                <input
+                                    type="password"
+                                    id="exampleInputEmail1"
+                                    aria-describedby="emailHelp"
+                                    onChange={this.handleChange}
+                                    name="email"
+                                    className="form-control"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label for="exampleInputPassword1">
+                                    Confirm Password
+                                </label>
+                                <input
+                                    type="password"
+                                    name="confirm_password"
+                                    value={this.state.confirm_password}
+                                    onChange={this.handleInput}
+                                    className="form-control"
+                                />
+                            </div>
+
+                            <div>
+                                <button
+                                    onClick={this.handleForm}
+                                    className="btn btn-primary"
+                                >
+                                    Reset
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="col-md-2"></div>
+                </div>
             </div>
         );
     }

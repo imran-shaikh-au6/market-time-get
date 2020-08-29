@@ -63,21 +63,25 @@ class Login extends Component {
                                     <h2>Login With Google</h2>
                                     <GoogleLogin
                                         clientId="1072465421731-uvep08evonm2cc003a31g791m73tonhi.apps.googleusercontent.com"
-                                        buttonText="Login"
+                                        buttonText="Login with Google"
                                         onSuccess={this.responseGoogle}
                                         onFailure={this.responseGoogle}
                                         cookiePolicy={"single_host_origin"}
-                                        className="gbtn"
+                                        className="btn btn-success"
                                     ></GoogleLogin>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-md-5 text1">
+                        <h3 className="display-6 text-center my-2">
+                            Login Form
+                        </h3>
+
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <label for="exampleInputEmail1">
-                                    Email address
+                                    <b>Email address</b>
                                 </label>
                                 <input
                                     type="email"
@@ -91,6 +95,7 @@ class Login extends Component {
                                     aria-describedby="emailHelp"
                                     onChange={this.handleChange}
                                     name="email"
+                                    placeholder="Enter Your Registered Email Address"
                                 />
                                 <small
                                     id="emailHelp"
@@ -107,7 +112,7 @@ class Login extends Component {
                             </div>
                             <div className="form-group">
                                 <label for="exampleInputPassword1">
-                                    Password
+                                    <b>Password</b>
                                 </label>
                                 <input
                                     type="password"
@@ -120,6 +125,7 @@ class Login extends Component {
                                     id="exampleInputPassword1"
                                     onChange={this.handleChange}
                                     name="password"
+                                    placeholder="Enter Your Password"
                                 />
                                 {errors.message && (
                                     <div className="invalid-feedback">
@@ -137,7 +143,10 @@ class Login extends Component {
                                 >
                                     Submit
                                 </button>
-                                <button className="btn btn-danger ml-2">
+                                <button
+                                    className="btn btn-danger "
+                                    style={{ marginLeft: "280px" }}
+                                >
                                     <a
                                         style={{ color: "black" }}
                                         href="/forget-password"

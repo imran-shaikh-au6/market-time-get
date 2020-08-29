@@ -78,7 +78,7 @@ class Navbar extends Component {
             </>
         );
         return (
-            <div className=" container-fluid fix">
+            <div className="  fix">
                 <nav className="navbar navbar-expand-lg navbar-dark back">
                     <img
                         style={{ width: "150px", height: "100px" }}

@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     position: relative;
-    background: linear-gradient(
+    background-color: linear-gradient(
         90deg,
         rgba(255, 201, 20, 1) 0%,
         rgba(249, 107, 126, 1) 74%

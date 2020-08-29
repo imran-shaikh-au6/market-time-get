@@ -10,7 +10,7 @@ const UserDashboard = (props) => {
     useEffect(() => {
         setUser(props.users);
 
-        console.log();
+        console.log(props.users);
         // console.log(props.history.location.state)
     }, [props.users]);
 

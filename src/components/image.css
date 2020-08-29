@@ -29,6 +29,7 @@
 .child-back {
     margin: auto;
     color: white;
+    font-size: 50px;
 }
 .searchBox {
     position: absolute;
@@ -64,8 +65,9 @@
         padding-left: -20px;
     }
     .child-back {
-        margin: auto;
+        width: auto;
         color: white;
+        font-size: 22px;
     }
     .child-back2 {
         flex-direction: column;

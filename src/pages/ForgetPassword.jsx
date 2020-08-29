@@ -49,33 +49,37 @@ export default class ForgetPassword extends Component {
     };
     render() {
         return (
-            <div class="container-center">
-                <h2>Don't Worry!</h2>
-                <form onSubmit={this.handleForm}>
-                    <h4>Just provide your email and we can do the rest</h4>
-                    <div style={{ marginBottom: "10px" }}>
-                        {" "}
-                        <NotificationContainer />
-                    </div>
-                    <formgroup>
-                        <input
-                            type="email"
-                            name="email"
-                            value={this.state.email}
-                            onChange={this.handleInput}
-                        />
-                        <label for="email">Email</label>
-                        <span>enter your email</span>
-                    </formgroup>
+            <div class="container-center row ">
+                <div className="body">
+                    <h2 className="h2">Don't Worry!</h2>
+                    <form className="form" onSubmit={this.handleForm}>
+                        <h4 className="h4">
+                            Just provide your email and we can do the rest
+                        </h4>
+                        <div style={{ marginBottom: "10px" }}>
+                            {" "}
+                            <NotificationContainer />
+                        </div>
+                        <formgroup className="formgroup">
+                            <input
+                                type="email"
+                                name="email"
+                                value={this.state.email}
+                                onChange={this.handleInput}
+                            />
+                            <label for="email">Email</label>
+                            <span>enter your email</span>
+                        </formgroup>
 
-                    <button onClick={this.handleForm} id="login-btn">
-                        Next
-                    </button>
-                </form>
+                        <button onClick={this.handleForm} id="login-btn">
+                            Next
+                        </button>
+                    </form>
 
-                <p>
-                    Did you remember? <a href="/login">Sign In</a>
-                </p>
+                    <p className="p">
+                        Did you remember? <a href="/login">Sign In</a>
+                    </p>
+                </div>
             </div>
         );
     }

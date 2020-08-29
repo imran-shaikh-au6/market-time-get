@@ -35,7 +35,10 @@ class EditProfile extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h1 className="display-3 text-center my-2">
+                            <h1
+                                style={{ color: "rgba(249, 107, 126, 1)" }}
+                                className="display-3 text-center my-2"
+                            >
                                 Edit Your Profile
                             </h1>
                             <p className="lead text-center">
@@ -47,12 +50,18 @@ class EditProfile extends Component {
                                 onSubmit={this.textSubmit}
                                 encType="multipart/form-data"
                             >
+                                <small className="form-text text-muted">
+                                    Select Your Profile Image
+                                </small>
                                 <input
                                     type="file"
                                     name="image"
                                     onChange={this.textHandle}
                                 />
                                 <div className="form-group">
+                                    <small className="form-text text-muted">
+                                        Enter Your Name
+                                    </small>
                                     <input
                                         type="text"
                                         className="form-control form-control-lg"
@@ -61,11 +70,11 @@ class EditProfile extends Component {
                                         onChange={this.textHandle}
                                         required
                                     />
-                                    <small className="form-text text-muted">
-                                        Enter Your Name
-                                    </small>
                                 </div>
                                 <div className="form-group">
+                                    <small className="form-text text-muted">
+                                        Select your city
+                                    </small>
                                     <select
                                         className="form-control form-control-lg"
                                         name="city"
@@ -77,12 +86,12 @@ class EditProfile extends Component {
                                             Bangalore
                                         </option>
                                         <option value="Mumbai"> Mumbai</option>
-                                        <option value="Kolkata">Kolkata</option>
+                                        <option value="Hydrabad">
+                                            Hydrabad
+                                        </option>
                                         <option value="Chennai">Chennai</option>
+                                        <option value="Pune">Pune</option>
                                     </select>
-                                    <small className="form-text text-muted">
-                                        Select your city onChange=
-                                    </small>
                                 </div>
                                 <div className="input-group mb-0">
                                     <div className="input-group-prepend">

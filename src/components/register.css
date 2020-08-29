@@ -75,3 +75,8 @@
 .btn-google1 {
     background-color: #dd4b39;
 }
+@media only screen and (max-width: 600px) {
+    .ggle {
+        height: 300px;
+    }
+}

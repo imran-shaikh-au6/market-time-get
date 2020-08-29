@@ -15,12 +15,12 @@ const Image = (props) => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(10);
+    const [postsPerPage] = useState(12);
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true);
             const res = await axios.get(
-                "https://market-time-be.herokuapp.com/allProduct/1"
+                "https://market-time-be.herokuapp.com/allProduct"
             );
             console.log(res.data);
             setPosts(res.data.allProduct);
@@ -65,22 +65,22 @@ const Image = (props) => {
     console.log(currentPosts);
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
     return (
-        <div className="container-fluid ">
+        <div className=" ">
             <div className="background">
                 <div className="child-back">
-                    <h1>
-                        {" "}
-                        <Typical
-                            loop={Infinity}
-                            wrapper="b"
-                            steps={[
-                                "Buy Anything You Want !!",
-                                5000,
-                                "Sell Anything You Want !!",
-                                5000,
-                            ]}
-                        />{" "}
-                    </h1>
+                    <Typical
+                        loop={Infinity}
+                        wrapper="p"
+                        steps={[
+                            "Buy Anything You Want !!",
+                            5000,
+                            "Shopping the way you like it !!!",
+                            6000,
+                            "Need it. Want it. Get it ",
+                            5000,
+                        ]}
+                    />
+
                     <div className="">
                         <form
                             className="formData child-back2"
